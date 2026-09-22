@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://p6llrpquns7a"]
+
+[ext_resource type="Script" uid="uid://nn6on4ela7w6" path="res://Scenes/player.gd" id="1_v0iea"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ubmik"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ubmik"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_nfl04"]
+
+[sub_resource type="Gradient" id="Gradient_f60y1"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0.9500752, 0.95223826, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5ci4y"]
+gradient = SubResource("Gradient_f60y1")
+
+[sub_resource type="Gradient" id="Gradient_v0iea"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ubmik"]
+gradient = SubResource("Gradient_v0iea")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0)
+
+[node name="Player" type="CharacterBody2D" unique_id=1483049283]
+script = ExtResource("1_v0iea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=34057599]
+shape = SubResource("CircleShape2D_ubmik")
+
+[node name="PlayerTexture" type="MeshInstance2D" parent="." unique_id=718832784]
+position = Vector2(2.2737368e-13, 3.5527137e-15)
+scale = Vector2(20.02268, 20.000006)
+mesh = SubResource("SphereMesh_ubmik")
+
+[node name="Eye1" type="MeshInstance2D" parent="PlayerTexture" unique_id=1344129514]
+position = Vector2(0.15, 0.162)
+scale = Vector2(0.074971676, 0.07499999)
+mesh = SubResource("SphereMesh_nfl04")
+texture = SubResource("GradientTexture2D_5ci4y")
+
+[node name="Eye2" type="MeshInstance2D" parent="PlayerTexture" unique_id=95059150]
+position = Vector2(0.13733011, -0.16249993)
+scale = Vector2(0.074971676, 0.07499999)
+mesh = SubResource("SphereMesh_nfl04")
+texture = SubResource("GradientTexture2D_5ci4y")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1923994407]
+zoom = Vector2(4, 4)
+
+[node name="PointLight2D" type="PointLight2D" parent="Camera2D" unique_id=835806635]
+texture = SubResource("GradientTexture2D_ubmik")
